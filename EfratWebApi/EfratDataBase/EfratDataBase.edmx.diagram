@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3b49c186a7004bc19b4a3387006b8559" Name="Diagram1">
+        <EntityTypeShape EntityType="Project_CarRentalModel.Branch" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_CarRentalModel.CarsForRent" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_CarRentalModel.CarsType" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_CarRentalModel.Photo" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_CarRentalModel.RentsInfo" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_CarRentalModel.sysdiagram" Width="1.5" PointX="5.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Project_CarRentalModel.User" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <AssociationConnector Association="Project_CarRentalModel.FK__CarsForRe__Branc__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_CarRentalModel.FK__CarsForRe__TypeI__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_CarRentalModel.FK__RentsInfo__CarID__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_CarRentalModel.FK_CarsType_Photos" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_CarRentalModel.FK_Users_Photos" ManuallyRouted="false" />
+        <AssociationConnector Association="Project_CarRentalModel.FK__RentsInfo__UserI__1CF15040" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
