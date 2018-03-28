@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -56,6 +64,7 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Cors, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.4\lib\net45\System.Web.Cors.dll</HintPath>
       <Private>True</Private>
@@ -171,6 +180,48 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="EfratDataBase\Branch.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\CarsForRent.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\CarsType.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\EfratDataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfratDataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\EfratDataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\EfratDataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfratDataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\Photo.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\RentsInfo.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\sp_helpdiagrams_Result.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\sysdiagram.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EfratDataBase\User.cs">
+      <DependentUpon>EfratDataBase.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +231,16 @@
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="EfratDataBase\EfratDataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EfratDataBase.edmx</DependentUpon>
+      <LastGenOutput>EfratDataBase.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EfratDataBase\EfratDataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EfratDataBase.edmx</DependentUpon>
+      <LastGenOutput>EfratDataBase.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -204,6 +265,13 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <EntityDeploy Include="EfratDataBase\EfratDataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EfratDataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="EfratDataBase\EfratDataBase.edmx.diagram">
+      <DependentUpon>EfratDataBase.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -226,7 +294,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
